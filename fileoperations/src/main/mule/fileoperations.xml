@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="893f7350-94b2-45a8-9f91-1056fe646d1e" >
+		<http:listener-connection host="localhost" port="8070" />
+	</http:listener-config>
+	<file:config name="File_Config" doc:name="File Config" doc:id="79e1b608-8c05-42e7-b61f-e0293b3c04a7" />
+	<file:config name="File_Config1" doc:name="File Config" doc:id="a62dd2a4-3387-4fe1-9f4b-172e26e8c5cc" />
+	<file:config name="File_Config2" doc:name="File Config" doc:id="9d5dc159-d6bb-4e82-b199-c4c1a0c47bcd" />
+	<flow name="fileoperationsFlow" doc:id="24725a43-be0b-4ff3-b68f-d2e3282ff0b3" >
+		<scheduler doc:name="Scheduler" doc:id="aa63e976-8d8d-4e08-8a10-6edb3e506d51" >
+			<scheduling-strategy >
+				<cron expression="1/10 * * * * ?" timeZone="IST" />
+			</scheduling-strategy>
+		</scheduler>
+		<logger level="INFO" doc:name="Logger" doc:id="1f41a9c6-9287-46c0-ba45-3f45db670cce" message="salary credited 100000 rupees"/>
+	</flow>
+</mule>

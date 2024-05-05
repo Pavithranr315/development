@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="2cebb3e5-355c-4540-be95-4c9c1aebc189" >
+		<http:listener-connection host="0.0.0.0" port="8065" />
+	</http:listener-config>
+	<flow name="first-projectFlow" doc:id="d67db14f-abde-4b7f-8da9-a56f78518ae4" >
+		<http:listener doc:name="Listener" doc:id="7bc3635e-20dd-46b9-a20c-9892343b58f4" config-ref="HTTP_Listener_config" path="/first"/>
+		<logger level="INFO" doc:name="Logger" doc:id="4ae52a77-f259-45a2-8b4d-c2c5a6f7a5c8" message="welcome to anypoint studio"/>
+	</flow>
+</mule>
